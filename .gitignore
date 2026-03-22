@@ -1,0 +1,19 @@
+.DS_Store
+.pytest_cache/
+.ruff_cache/
+.coverage
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.mypy_cache/
+
+# Local data and artifacts
+artifacts/*
+!artifacts/.gitkeep
+data/*
+!data/.gitkeep
+
+# Keep the historical project out of the new OSS surface
+legacy/
+

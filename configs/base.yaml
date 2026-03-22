@@ -1,0 +1,58 @@
+seed: 42
+task:
+  labels:
+    - O
+    - B-Lead
+    - I-Lead
+    - B-Position
+    - I-Position
+    - B-Claim
+    - I-Claim
+    - B-Counterclaim
+    - I-Counterclaim
+    - B-Rebuttal
+    - I-Rebuttal
+    - B-Evidence
+    - I-Evidence
+    - B-Concluding Statement
+    - I-Concluding Statement
+data:
+  train_dir: data/essay-labeler/train
+  test_dir: data/essay-labeler/test
+  train_csv: data/essay-labeler/train.csv
+  corrected_csv:
+  artifacts_dir: artifacts
+model:
+  backbone_name: microsoft/deberta-v3-base
+  tokenizer_name:
+  dropout_prob: 0.2
+  multi_sample_dropout: 5
+training:
+  folds: 5
+  epochs: 1
+  train_batch_size: 2
+  valid_batch_size: 2
+  learning_rate: 2.0e-5
+  weight_decay: 0.01
+  max_length: 512
+  inference_max_length: 1024
+  num_workers: 0
+  grad_accumulation_steps: 1
+  save_best_only: true
+postprocess:
+  min_thresh:
+    I-Lead: 11
+    I-Position: 7
+    I-Evidence: 12
+    I-Claim: 1
+    I-Concluding Statement: 11
+    I-Counterclaim: 6
+    I-Rebuttal: 4
+  prob_thresh:
+    I-Lead: 0.687
+    I-Position: 0.537
+    I-Evidence: 0.637
+    I-Claim: 0.537
+    I-Concluding Statement: 0.687
+    I-Counterclaim: 0.37
+    I-Rebuttal: 0.537

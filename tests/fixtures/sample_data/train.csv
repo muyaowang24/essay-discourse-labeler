@@ -1,0 +1,6 @@
+id,discourse_id,discourse_start,discourse_end,discourse_text,discourse_type,discourse_type_num,predictionstring,new_predictionstring
+doc1,1,0,10,Lead words,Lead,Lead 1,0 1,0 1
+doc1,2,11,30,position claim,Claim,Claim 1,3 4,3 4
+doc2,3,0,20,Another lead,Lead,Lead 1,0 1,0 1
+doc2,4,21,40,evidence and conclusion,Evidence,Evidence 1,3 4,3 4
+

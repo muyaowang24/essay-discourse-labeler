@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "essay-labeler-nlp"
+version = "0.1.0"
+description = "A reproducible essay discourse labeling pipeline for training, evaluation, and inference."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "Muyao Wang" }
+]
+keywords = ["nlp", "token-classification", "transformers", "pytorch", "discourse-labeling"]
+dependencies = [
+  "numpy>=1.24",
+  "PyYAML>=6.0",
+  "scikit-learn>=1.3",
+  "torch>=2.1",
+  "transformers>=4.39",
+  "tqdm>=4.66"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pre-commit>=3.6",
+  "pytest>=8.0",
+  "ruff>=0.3"
+]
+
+[project.scripts]
+essay-labeler = "essay_labeler.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
