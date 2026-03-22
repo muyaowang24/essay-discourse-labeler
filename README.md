@@ -6,8 +6,7 @@ configuration-driven training, evaluation, and inference workflows.
 
 ## Why this repository exists
 
-The original project was notebook-first and tightly coupled to a one-off
-runtime. This version makes the same core ideas reusable:
+This version makes the same core ideas reusable:
 
 - token classification with Transformer backbones
 - BIO discourse labels
